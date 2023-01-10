@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .App-logo {
@@ -7,7 +9,8 @@
   pointer-events: none;
 }
 img{
-  width: 50%;
+  width: 100%;
+  height: 50vh;
 }
 
 .date-content{
