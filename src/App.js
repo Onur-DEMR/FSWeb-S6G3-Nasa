@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {dummyData} from "./dummyData";
 import "./App.css";
 import axios from "axios";
+import Nasa from "./Nasa/Nasa";
 
 
 
@@ -16,17 +17,16 @@ function App() {
     });
   }, [tarih]);
 
+function tarihiDegistir(gunler){
+  let gun = new Date (tarih);
+  gun.setDate(gun.getDate()+gunler);
+  let stringTarih = gun.getFullYear() + "-" + gun.getMonth()+1 + "-" + gun.getDate() ;
+  setTarih(stringTarih);
+}
+
   return (
     <div className="App">
-    <h1>{data.title}</h1>
-    <p>{data.explanation}</p>
-    <img src={data.url} alt={data.title} />
-    <div className="date-content">
-    <button onClick={()=>setTarih("2020-01-10")}>Azalt</button>
-    <p>{data.date}</p>
-    <button onClick={()=>setTarih("2023-01-10")}>Arttır</button>
-    </div>
-    <p>{data.copyright}</p>
+    <Nasa data = {data} dönüştürücü = {tarihiDegistir()} />
     </div>
   );
 }
